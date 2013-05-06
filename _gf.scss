@@ -1,0 +1,125 @@
+@mixin gf_field($type: default, $bgColor: #fff, $border-radius: 10px, $height: 50px, $txtColor: $defaultText) {
+  	
+	height: $height;
+	margin: 0 0 15px;
+	position: relative;
+	color: $txtColor;
+
+	input {
+		background-color: transparent;
+		border:none;
+		color: #545454;
+		height: $height;
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+	}
+
+	label {
+		position:relative;
+		left: 15px;
+		top: 12px;
+	}
+
+	@if ($type == default) {
+		background: $bgColor;
+		border-radius: $border-radius;
+		overflow-x: hidden;
+	}
+
+	@else if ($type == name) {
+		> label {display:none;}
+		.ginput_complex {
+			span {
+				background: $bgColor;
+				border-radius: $border-radius;
+				display:inline-block;
+				height:$height;
+				position:relative;
+				width: 49.5%;
+			}
+			input {
+				padding-left: 100px;
+			}
+			.ginput_left {margin-right: 1%;}
+			&:after {content: "";clear:both;display:table;}
+		}
+	}	
+	@else if ($type == email) {
+		> input {
+			padding-left: 75px;
+		}
+	}
+	@else if ($type == address) {
+		> label {display:none;}
+		> div {
+			> span {
+				margin-bottom: 15px;
+				background: $bgColor;
+				border-radius: $border-radius;
+				height: $height;
+				display:inline-block;
+				position:relative;
+				
+				&.ginput_full {
+					width:100%;
+					input {
+						padding-left: 120px;
+						position:absolute;
+					}
+				}
+			}
+			> span[id$="_3_container"] {
+				float:left;
+				margin-right: 1%;
+				width: 39%;
+				input {
+					padding-left: 50px;
+				}
+			}
+			> span[id$="_4_container"] {
+				float:left; 
+				margin-right: 1%;
+				width:19%;
+			}
+			> span[id$="_5_container"] {
+				float:right;
+				width: 39%;
+				input {
+					padding-left: 80px;
+				}
+			}
+			&:after {clear:both;content: ""; display:table;}
+		}
+	}
+	@else if ($type == halfLeft) {
+		background: $bgColor;
+		border-radius: $border-radius;
+		display:inline-block;
+		width: 49.5%;
+		margin-right: 1%;
+		overflow-x:hidden;
+		.ginput_container {
+			position:relative;
+			display:inline-block;
+			left:25px;
+			top:10px;
+		}
+	}
+	@else if ($type == halfRight) {
+		background: $bgColor;
+		border-radius: $border-radius;
+		display:inline-block;
+		width: 49.5%;
+		overflow-x:hidden;
+		.ginput_container {
+			position:relative;
+			display:inline-block;
+			left:25px;
+			top:10px;
+		}
+	}
+}
+
+
