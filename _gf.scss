@@ -1,5 +1,20 @@
+@mixin gf_field_select($bgImg: url(../images/sprite.png), $bgXPos: 0, $bgYPos: 0, $txtColor: $defaultText ) {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	background: {
+		color: transparent;
+		image: $bgImg;
+		repeat: no-repat;
+		position: $bgXPos $bgYPos;
+	}
+	width:150%;
+	overflow:hidden;
+	border:none;
+	color:$txtColor;
+	padding: 4px 5px 5px;
+}
+
 @mixin gf_field($type: default, $bgColor: #fff, $border-radius: 10px, $height: 50px, $txtColor: $defaultText) {
-  	
 	height: $height;
 	margin: 0 0 15px;
 	position: relative;
